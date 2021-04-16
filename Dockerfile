@@ -9,6 +9,8 @@ LABEL maintainer="Govindarajan V"
 RUN apt-get update -y
 RUN pip install gittyleaks
 
-COPY . /repo
-COPY entrypoint.sh /
+
+COPY ./ /repo
+WORKDIR /repo
+# COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
