@@ -2,7 +2,7 @@
 
 set -u
 
-cd /repo 
+env
 gittyleaks --find-anything
 
 sleep 120

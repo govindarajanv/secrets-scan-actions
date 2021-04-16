@@ -12,5 +12,6 @@ RUN pip install gittyleaks
 
 COPY ./ /repo
 WORKDIR /repo
-# COPY entrypoint.sh /
-ENTRYPOINT ["/repo/entrypoint.sh"]
+# ENV PATH /repo:$PATH
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
