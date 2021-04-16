@@ -3,9 +3,6 @@ on:
   push:
     branches:
       - main
-  milestone:
-    types: [closed]
-  create:
 jobs:
   test:
     name: Test
@@ -16,11 +13,6 @@ jobs:
     steps:
       - name: Get the sources
         uses: actions/checkout@v1
-      - name: Create a release draft for a version tag
-        id: create-release-draft
+      - name: scan for secrets
+        id: scan-for-secrets
         uses: ./
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN  }}
-      - name: Print the URL of the release draft
-        if: steps.create-release-draft.outputs.release-url != ''
-        run: echo ${{ steps.create-release-draft.outputs.release-url }}

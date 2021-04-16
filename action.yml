@@ -1,18 +1,9 @@
-name: 'Auto Release Milestone Action'
-description: 'Drafts a Github Release based on newly closed Milestone'
+name: 'Detect Repo Secrets Action'
+description: 'Detect secrets in a given repository'
 author: 'Govindarajan V'
-inputs:
-  repo-token:
-    description: 'The GITHUB_TOKEN used to autheticate to the repositories'
-    required: true
-outputs:
-  release-url: 
-      description: 'URL of Github release that was drafted'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{inputs.repo-token}}
 branding:
   color: red
   icon: flag
